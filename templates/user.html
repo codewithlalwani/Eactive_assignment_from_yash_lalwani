@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Users List</title>
+  <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.0/dist/paper.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Make table container scroll horizontally on small devices */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 0 10%;
+    }
+    @media (max-width: 600px) {
+      .table-responsive {
+        margin: 0 5%;
+      }
+      h1 {
+        margin-left: 5% !important;
+        font-size: 1.5rem;
+      }
+      .btn-block {
+        font-size: 1rem;
+      }
+      .row {
+        padding-left: 5% !important;
+        max-width: 90% !important;
+      }
+    }
+    td, th {
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="margin-left: 10%;">Users</h1>
+  <div class="table-responsive">
+    <table class="table-hover" style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr style="font-weight: bold;">
+          <th align="left">ID</th>
+          <th align="left">Name</th>
+          <th align="left">Email</th>
+          <th align="left">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr onclick="window.location.href='users/{{ user[0] }}'" style="cursor:pointer;">
+          <td>{{ user[0] }}</td>
+          <td>{{ user[1] }}</td>
+          <td>{{ user[2] }}</td>
+          <td>{{ user[3] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <a href="{{ url_for('new_user') }}">
+    <div class="row" style="padding-left: 10%; max-width: 80%;">
+      <div class="col-6 col">
+        <button class="btn-block">Add new user</button>
+      </div>
+    </div>
+  </a>
+</body>
+</html>
