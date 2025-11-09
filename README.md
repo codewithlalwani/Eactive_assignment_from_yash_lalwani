@@ -5,7 +5,7 @@
 ## Setup
 
 1. Clone the repository:
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   git clone https://github.com/codewithlalwani/Eactive_assignment_from_yash_lalwani.git
 
 2. Install dependencies:
    pip install flask flask-mysqldb
